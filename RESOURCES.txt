@@ -1,0 +1,13 @@
+----- LINKS ------
+
+--GIT CHEATSHEET
+https://www.cloudways.com/blog/git-cheat-sheet/?id=290872&gclid=Cj0KCQjw9ZGYBhCEARIsAEUXITUupeZlYSKJAxwYh0wnUoIKB3gkRIYuYT7Oj94xJtdkkUFShIPu2CQaAvx4EALw_wcB
+
+--FIREBASE WITH PYTHON
+https://faun.pub/getting-started-with-firebase-cloud-firestore-using-python-c6ab3f5ecae0?gi=923c74695c40
+
+--MULTITHREADING 
+https://www.geeksforgeeks.org/multithreading-python-set-1/amp/
+
+--MULTIPLE FILES RUNNING
+https://fedingo.com/how-to-run-multiple-python-files-one-after-the-other/
