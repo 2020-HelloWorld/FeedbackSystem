@@ -1,4 +1,5 @@
 import firebase_admin 
+from stage1_anal import*
 from firebase_admin import credentials 
 from firebase_admin import firestore
 import datetime
