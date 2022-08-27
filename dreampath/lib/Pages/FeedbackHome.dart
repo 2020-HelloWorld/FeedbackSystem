@@ -1,38 +1,26 @@
-
-import 'package:dreampath/Pages/FeedbackHome.dart';
-import 'package:dreampath/Pages/Register.dart';
-import 'package:dreampath/Pages/SplashScreen.dart';
+import 'package:dreampath/Pages/CounsellingDone.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+import 'SplashScreen.dart';
+
+class FeedbackHome extends StatelessWidget {
+  const FeedbackHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white12,
       body: SingleChildScrollView(
         child: Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(left: 75.0,top: 50),
+            padding: const EdgeInsets.all(130.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                //--REGISTRATION BUTTON--
-                Text(
-                  "Are you new to the counselling?\nPress the button below to register",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 20
-                  ),
-                ),
-
                 Container(
                   margin: EdgeInsets.only(top: 40),
                   height: 60,
                   width: 200,
                   child: FlatButton(
-                    child: Text("Register",
+                    child: Text("Just Completed Counselling",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
 
@@ -40,7 +28,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(
-                          builder: (context)=>Register()
+                          builder: (context)=>CounsellingDone()
                       ));
                     },
                   ),
@@ -58,22 +46,13 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
 
-                //--FEEDBACK BUTTON--
-                SizedBox(height: 100,),
-                Text(
-                  "Are you done with counselling?\nPress the button below to give feedback",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20
-                  ),
-                ),
 
                 Container(
                   margin: EdgeInsets.only(top: 40),
                   height: 60,
                   width: 200,
                   child: FlatButton(
-                    child: Text("Feedback",
+                    child: Text("Completed X",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
 
@@ -81,7 +60,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(
-                          builder: (context)=>FeedbackHome()
+                          builder: (context)=>SplashScreen()
                       ));
                     },
                   ),
@@ -99,6 +78,36 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
 
+                Container(
+                  margin: EdgeInsets.only(top: 40),
+                  height: 60,
+                  width: 200,
+                  child: FlatButton(
+                    child: Text("Completed XII",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+
+                      ),
+                    ),
+                    onPressed: (){
+                      Navigator.push(context,MaterialPageRoute(
+                          builder: (context)=>SplashScreen()
+                      ));
+                    },
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.deepPurple.shade700.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black26,
+                            offset: Offset(4,4),
+                            spreadRadius: 3,
+                            blurRadius: 5
+                        )
+                      ]
+                  ),
+                ),
               ],
             ),
           ),
@@ -107,4 +116,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
