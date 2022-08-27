@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'SplashScreen.dart';
+
 enum Rating{Useful, NotUseful, Partial}
 enum YesNo{Yes,No}
 
@@ -32,10 +34,18 @@ class _CounsellingDoneState extends State<CounsellingDone> {
   TextEditingController _reachout = new TextEditingController();
   TextEditingController _setGoal = new TextEditingController();
 
+  TextEditingController _choices = new TextEditingController();
+  TextEditingController _confident = new TextEditingController();
+  TextEditingController _like = new TextEditingController();
+  TextEditingController _notlike = new TextEditingController();
+  TextEditingController _rate = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("PLEASE FILL ALL THE FIELDS"),
+      ),
       body: SingleChildScrollView(
         child: Expanded(
           child: Padding(
@@ -417,7 +427,7 @@ class _CounsellingDoneState extends State<CounsellingDone> {
                 ListTile(
                   leading: Radio(
                     groupValue: recommend,
-                    value: YesNo.Yes,
+                    value: YesNo.No,
                     onChanged: (YesNo? value){
                       setState((){
                         this.recommend = value;
@@ -464,7 +474,7 @@ class _CounsellingDoneState extends State<CounsellingDone> {
                 ListTile(
                   leading: Radio(
                     groupValue:reachout,
-                    value: YesNo.Yes,
+                    value: YesNo.No,
                     onChanged: (YesNo? value){
                       setState((){
                         this.reachout = value;
@@ -511,7 +521,7 @@ class _CounsellingDoneState extends State<CounsellingDone> {
                 ListTile(
                   leading: Radio(
                     groupValue:setGoal,
-                    value: YesNo.Yes,
+                    value: YesNo.No,
                     onChanged: (YesNo? value){
                       setState((){
                         this.setGoal = value;
@@ -533,6 +543,143 @@ class _CounsellingDoneState extends State<CounsellingDone> {
               ),
               height: 50,
             ),
+
+                Text(
+                  "Has your career choices changed with new or more options now?",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      icon: Icon(Icons.mail),
+                      labelText: "Description",
+                    ),
+                    controller: _choices,
+                  ),
+                  height: 50,
+                ),
+                SizedBox(height: 50,),
+
+                Text(
+                  "Are you more aware and confident about your career choices as well as decision making now? ",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      icon: Icon(Icons.mail),
+                      labelText: "Description",
+                    ),
+                    controller: _confident,
+                  ),
+                  height: 50,
+                ),
+                SizedBox(height: 50,),
+
+                Text(
+                  "Which part of the session you enjoyed the most?",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      icon: Icon(Icons.mail),
+                      labelText: "Description",
+                    ),
+                    controller: _like,
+                  ),
+                  height: 50,
+                ),
+                SizedBox(height: 50,),
+
+                Text(
+                  "Which part of the session you enjoyed the least?",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      icon: Icon(Icons.mail),
+                      labelText: "Description",
+                    ),
+                    controller: _notlike,
+                  ),
+                  height: 50,
+                ),
+                SizedBox(height: 50,),
+
+                Text(
+                  "Overall rating for the workshop? Rating Scale 1-10",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      icon: Icon(Icons.mail),
+                      labelText: "Description",
+                    ),
+                    controller: _rate,
+                  ),
+                  height: 50,
+                ),
+                SizedBox(height: 50,),
+
+                Container(
+                  margin: EdgeInsets.only(top: 40),
+                  height: 60,
+                  width: 200,
+                  child: FlatButton(
+                    child: Text("Submit",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+
+                      ),
+                    ),
+                    onPressed: (){
+                      Navigator.push(context,MaterialPageRoute(
+                          builder: (context)=>SplashScreen()
+                      ));
+                    },
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.deepPurple.shade700.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black26,
+                            offset: Offset(4,4),
+                            spreadRadius: 3,
+                            blurRadius: 5
+                        )
+                      ]
+                  ),
+                ),
+                SizedBox(height: 50,),
               ],
             ),
           ),

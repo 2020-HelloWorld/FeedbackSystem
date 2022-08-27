@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'SplashScreen.dart';
+
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
@@ -113,8 +115,10 @@ class _RegisterState extends State<Register> {
                         color: Colors.black.withBlue(50)
                       ),
                     ),
-                    onPressed: () {
-
+                    onPressed: (){
+                      Navigator.push(context,MaterialPageRoute(
+                          builder: (context)=>SplashScreen()
+                      ));
                     },
                   ),
                   decoration: BoxDecoration(

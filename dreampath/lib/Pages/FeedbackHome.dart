@@ -1,4 +1,6 @@
 import 'package:dreampath/Pages/CounsellingDone.dart';
+import 'package:dreampath/Pages/XDone.dart';
+import 'package:dreampath/Pages/XIIDone.dart';
 import 'package:flutter/material.dart';
 
 import 'SplashScreen.dart';
@@ -60,7 +62,7 @@ class FeedbackHome extends StatelessWidget {
                     ),
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(
-                          builder: (context)=>SplashScreen()
+                          builder: (context)=>XDone()
                       ));
                     },
                   ),
@@ -91,7 +93,7 @@ class FeedbackHome extends StatelessWidget {
                     ),
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(
-                          builder: (context)=>SplashScreen()
+                          builder: (context)=>XIIDone()
                       ));
                     },
                   ),
