@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'SplashScreen.dart';
 
 class FeedbackHome extends StatelessWidget {
-  const FeedbackHome({Key? key}) : super(key: key);
+  final String username ;
+  final String password ;
+  const FeedbackHome({Key? key, required this.username, required this.password}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +64,7 @@ class FeedbackHome extends StatelessWidget {
                     ),
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(
-                          builder: (context)=>XDone()
+                          builder: (context)=>XDone(username: this.username,password: this.password,)
                       ));
                     },
                   ),
@@ -93,7 +95,7 @@ class FeedbackHome extends StatelessWidget {
                     ),
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(
-                          builder: (context)=>XIIDone()
+                          builder: (context)=>XIIDone(username: this.username,password: this.password,)
                       ));
                     },
                   ),

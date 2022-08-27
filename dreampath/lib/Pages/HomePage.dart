@@ -2,6 +2,7 @@
 import 'package:dreampath/Pages/FeedbackHome.dart';
 import 'package:dreampath/Pages/Register.dart';
 import 'package:dreampath/Pages/SplashScreen.dart';
+import 'package:dreampath/Pages/login.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -81,7 +82,7 @@ class HomePage extends StatelessWidget {
                     ),
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(
-                          builder: (context)=>FeedbackHome()
+                          builder: (context)=>SignIn()
                       ));
                     },
                   ),

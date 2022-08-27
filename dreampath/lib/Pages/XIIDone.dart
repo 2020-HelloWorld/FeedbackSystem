@@ -6,7 +6,10 @@ enum YesNo{Yes, No}
 enum Course{Engineering, Medical,OtherScience, Commerce, PublicService, Art}
 
 class XIIDone extends StatefulWidget {
-  const XIIDone({Key? key}) : super(key: key);
+  final String username;
+  final String password;
+
+  const XIIDone({Key? key, required this.username, required this.password}) : super(key: key);
 
   @override
   State<XIIDone> createState() => _XIIDoneState();

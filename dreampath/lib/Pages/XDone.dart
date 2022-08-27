@@ -5,13 +5,17 @@ enum YesNo{Yes, No}
 enum Course{Science,Commerce,Arts,Others}
 
 class XDone extends StatefulWidget {
-  const XDone({Key? key}) : super(key: key);
+  final String username;
+  final String password;
+
+  const XDone({Key? key, required this.username,  required this.password}) : super(key: key);
 
   @override
   State<XDone> createState() => _XDoneState();
 }
 
 class _XDoneState extends State<XDone> {
+
   Course? course;
 
   YesNo? attend;
