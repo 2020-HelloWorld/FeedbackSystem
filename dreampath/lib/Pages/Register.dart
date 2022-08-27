@@ -37,7 +37,8 @@ class _RegisterState extends State<Register> {
                         border: InputBorder.none,
                         icon: Icon(Icons.mail),
                         labelText: "Enter Name",
-                        hintText: "Name"),
+                        hintText: "Name"
+                    ),
                     controller: _name,
                   ),
                   decoration: BoxDecoration(
