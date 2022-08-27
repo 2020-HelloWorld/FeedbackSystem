@@ -7,6 +7,6 @@ firebase_admin.initialize_app ( cred )
 
 db=firestore.client()
 
-db.collection('persons').add({'name':'john','age':'20'})
+db.collection('persons').add({'name':'john','age':'21','gender':'male'})
 
 
