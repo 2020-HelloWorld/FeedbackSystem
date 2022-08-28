@@ -8,9 +8,9 @@ cred = credentials . Certificate ( "serviceAccountKey.json" )
 firebase_admin.initialize_app ( cred )
 
 db=firestore.client()
-
+d = dict()
 result=db.collection('Dreampath').document('2017').collection('Student').document("S1").get()
 for doc in db.collection('Dreampath').document('2017').collection('Student').get():
-    myscore1(doc.to_dict())
+    d = myscore1(doc.to_dict())
     
-
+print(d)
