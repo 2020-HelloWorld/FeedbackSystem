@@ -12,7 +12,7 @@ email_receiver = 'jeevan102002@gmail.com'
 # Set the subject and body of the email
 subject = 'Test Email'
 body = """
-Muchkond Ubuntu Reinstall maadu
+Hello there this is from RUNTIME ERROR
 """
 
 em = EmailMessage()
