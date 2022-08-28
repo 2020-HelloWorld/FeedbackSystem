@@ -21,7 +21,7 @@ class _SignInState extends State<SignIn> {
       body: SingleChildScrollView(
         child: Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(left:8.0,top: 20),
+            padding: const EdgeInsets.only(left:8.0,top: 100),
             child: Column(
               children: [
                 Container(
@@ -87,7 +87,7 @@ class _SignInState extends State<SignIn> {
                     ),
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(
-                          builder: (context)=>FeedbackHome(username:_username.toString(),password: _password.toString())
+                          builder: (context)=>FeedbackHome(username:_username.text.toString(),password: _password.text.toString())
                       ));
                     },
                   ),

@@ -1,6 +1,8 @@
 import 'package:dreampath/Pages/SplashScreen.dart';
 import 'package:flutter/material.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 enum YesNo{Yes, No}
 enum Course{Science,Commerce,Arts,Others}
 
@@ -295,6 +297,19 @@ class _XDoneState extends State<XDone> {
                     ),
                   ),
                   onPressed: (){
+                    print("User Name: ${widget.username}");
+                    print("Password: ${widget.password}");
+                    FirebaseFirestore.instance.collection("Dreampath").doc("${widget.password}").collection("Student").doc("${widget.username}").set(
+                        {
+                          "Q2[0]":attend==YesNo.Yes?1:2,
+                          "Q2[1]":_wyd.text.toString(),
+                          "Q2[2]":course==Course.Science?"Science":course==Course.Commerce?"Commerce":course==Course.Arts?"Arts":"Others",
+                          "Q2[3]":_whyCourse.text.toString(),
+                          "Q2[4]":_howCourse.text.toString(),
+                          "Q2[5]":help==YesNo.Yes?1:2,
+                          "Q2[6]":_howHelp.text.toString(),
+                          "Q2[7]":resource==YesNo.Yes?1:2
+                        }).then((value) => print("Updated")).catchError((er)=>print("Error"));
                     Navigator.push(context,MaterialPageRoute(
                         builder: (context)=>SplashScreen()
                     ));

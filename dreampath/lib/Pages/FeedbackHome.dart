@@ -16,7 +16,7 @@ class FeedbackHome extends StatelessWidget {
       body: SingleChildScrollView(
         child: Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(130.0),
+            padding: const EdgeInsets.only(top:150.0,left: 100),
             child: Column(
               children: [
                 Container(
@@ -32,7 +32,7 @@ class FeedbackHome extends StatelessWidget {
                     ),
                     onPressed: (){
                       Navigator.push(context,MaterialPageRoute(
-                          builder: (context)=>CounsellingDone()
+                          builder: (context)=>CounsellingDone(username: this.username,password: this.password,)
                       ));
                     },
                   ),

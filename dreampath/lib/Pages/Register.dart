@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'SplashScreen.dart';
 
 class Register extends StatefulWidget {
@@ -13,6 +13,8 @@ class _RegisterState extends State<Register> {
   TextEditingController _email = new TextEditingController();
   TextEditingController _name = new TextEditingController();
   TextEditingController _ph = new TextEditingController();
+  var _count = 0;
+  var date = "2022";
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class _RegisterState extends State<Register> {
       body: SingleChildScrollView(
         child: Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(top:25.0,left: 10,right: 10),
+            padding: const EdgeInsets.only(top:150.0,left: 10,right: 10),
             child: Column(
               children: [
                 Text("ENTER YOUR INFORMATION ",
@@ -116,6 +118,36 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     onPressed: (){
+                      // FirebaseFirestore.instance.collection("Dreampath").doc(date).collection("Student").doc("S10").update({
+                      //   "age":"GMB"
+                      // });
+                      FirebaseFirestore.instance.collection("Dreampath").doc(date).collection("Student").get().then((snapshots) => _count = snapshots.docs.length).then((value) {
+                        _count = _count + 1;
+                        FirebaseFirestore.instance.collection("Dreampath").doc(date).collection("Student").doc("S${_count}").set(
+                            {
+                              "name": "${_name.text.toString()}",
+                              "email ID": "${_email.text.toString()}",
+                              "Phone no.": "${_ph.text.toString()}",
+                              // "Q2[0]":0,
+                              // "Q2[1]":"",
+                              // "Q2[2]":"",
+                              // "Q2[3]":"",
+                              // "Q2[4]":"",
+                              // "Q2[5]":0,
+                              // "Q2[6]":"",
+                              // "Q2[7]":0,
+                              // "Q3[0]":0,
+                              // "Q3[1]":"",
+                              // "Q3[2]":"",
+                              // "Q3[3]":"",
+                              // "Q3[4]":"",
+                              // "Q3[5]":0,
+                              // "Q3[6]":"",
+                              // "Q3[7]":0,
+                            });
+                      }
+                      );
+
                       Navigator.push(context,MaterialPageRoute(
                           builder: (context)=>SplashScreen()
                       ));

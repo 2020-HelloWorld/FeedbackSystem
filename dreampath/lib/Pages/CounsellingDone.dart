@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'SplashScreen.dart';
 
 enum Rating{Useful, NotUseful, Partial}
 enum YesNo{Yes,No}
 
 class CounsellingDone extends StatefulWidget {
-  const CounsellingDone({Key? key}) : super(key: key);
+  final String username;
+  final String password;
+  const CounsellingDone({Key? key, required this.username, required this.password}) : super(key: key);
 
   @override
   State<CounsellingDone> createState() => _CounsellingDoneState();
@@ -661,6 +663,32 @@ class _CounsellingDoneState extends State<CounsellingDone> {
                       ),
                     ),
                     onPressed: (){
+                      FirebaseFirestore.instance.collection("Dreampath").doc("${widget.password}").collection("Student").doc("${widget.username}").set(
+                          {
+                            "Q1[0]":useful==Rating.Useful?1:useful==Rating.NotUseful?2:3,
+                            "Q1[0].1":_useful.text.toString(),
+                            "Q1[1]":understand==Rating.Useful?1:understand==Rating.NotUseful?2:3,
+                            "Q1[1].1":_understand.text.toString(),
+                            "Q1[2]":enjoy==Rating.Useful?1:understand==Rating.NotUseful?2:3,
+                            "Q1[2].1":_enjoy.text.toString(),
+                            "Q1[3]":material==Rating.Useful?1:understand==Rating.NotUseful?2:3,
+                            "Q1[3].1":_material.text.toString(),
+                            "Q1[4]":knowledge==Rating.Useful?1:understand==Rating.NotUseful?2:3,
+                            "Q1[4].1":_knowledge.text.toString(),
+                            "Q1[5]":clarity==Rating.Useful?1:understand==Rating.NotUseful?2:3,
+                            "Q1[5].1":_clarity.text.toString(),
+                            "Q1[6]":recommend==YesNo.Yes?1:2,
+                            "Q1[6].1":_recommend.text.toString(),
+                            "Q1[7]":reachout==YesNo.Yes?1:2,
+                            "Q1[7].1":_reachout.text.toString(),
+                            "Q1[8]":setGoal==YesNo.Yes?1:2,
+                            "Q1[8].1":_setGoal.text.toString(),
+                            "Q1[9]":_choices.text.toString(),
+                            "Q1[10]":_confident.text.toString(),
+                            "Q1[11]":_like.text.toString(),
+                            "Q1[12]":_notlike.text.toString(),
+                            "Q1[13]":int.parse(_rate.text.toString()),
+                          });
                       Navigator.push(context,MaterialPageRoute(
                           builder: (context)=>SplashScreen()
                       ));

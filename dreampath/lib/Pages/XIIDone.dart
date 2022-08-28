@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'SplashScreen.dart';
 
 enum YesNo{Yes, No}
@@ -318,6 +318,17 @@ class _XIIDoneState extends State<XIIDone> {
                     ),
                   ),
                   onPressed: (){
+                    FirebaseFirestore.instance.collection("Dreampath").doc("${widget.password}").collection("Student").doc("${widget.username}").set(
+                        {
+                          "Q3[0]":attend==YesNo.Yes?1:2,
+                          "Q3[1]":_wyd.text.toString(),
+                          "Q3[2]":course==Course.Engineering?"Engineering":course==Course.Commerce?"Commerce":course==Course.OtherScience?"Other Science related field":course==Course.PublicService?"Civil Service":course==Course.Art?"Arts":"Medical",
+                          "Q3[3]":_whyCourse.text.toString(),
+                          "Q3[4]":_howCourse.text.toString(),
+                          "Q3[5]":help==YesNo.Yes?1:2,
+                          "Q3[6]":_howHelp.text.toString(),
+                          "Q3[7]":resource==YesNo.Yes?1:2
+                        });
                     Navigator.push(context,MaterialPageRoute(
                         builder: (context)=>SplashScreen()
                     ));
